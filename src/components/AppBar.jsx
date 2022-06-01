@@ -3,6 +3,7 @@ import { View, ViewPropTypes, StyleSheet } from 'react-native'
 import StyledText from './StyledText'
 import Constants from 'expo-constants'
 import theme from '../theme'
+import {NavigationContainer} from '@react-navigation/native'
 
 const styles = StyleSheet.create({
     container: {

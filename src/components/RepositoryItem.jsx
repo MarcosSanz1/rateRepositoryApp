@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import StyledText from './StyledText.jsx'
 import RepositoryStats from './RepositoryStats.jsx'
 import theme from '../theme.js'
@@ -7,7 +7,7 @@ import theme from '../theme.js'
 const RepositoryHeader = ({ ownerAvatarUrl, fullName, description, languaje }) => (
     <View style={{ flexDirection: 'row', paddingBottom: 2}}>
         <View style={{ paddingRight: 10 }}>
-            <Image style={styles.image} source={{ uri: ownerAvatarUrl }}/>
+            <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
         </View>
         <View style={{ flex: 1 }}>
             <StyledText fontWeight={'bold'}>{fullName}</StyledText>
@@ -17,11 +17,16 @@ const RepositoryHeader = ({ ownerAvatarUrl, fullName, description, languaje }) =
     </View>
 )
 
-const RepositoryItem = (props) => {
+const RepositoryItem = (props, {navigation}) => {
     return (
-        <View key={props.id} style={styles.container}>
-            <RepositoryHeader {...props}/>
-            <RepositoryStats {...props}/>
+        <View key={props.id} style={styles.container} >
+            {/* <TouchableOpacity
+                // style={styles.button}
+                onPress={() => {navigation.navigate('Profile')}}
+            > */}
+                <RepositoryHeader {...props}/>
+                <RepositoryStats {...props}/>
+            {/* </TouchableOpacity> */}
         </View>
     )
 }
@@ -44,6 +49,9 @@ const styles = StyleSheet.create({
         width: 48,
         height: 48,
         borderRadius: 5
+    },
+    button: {
+        backgroundColor: "#DDDDDD",
     }
 }) 
 
